@@ -16,6 +16,13 @@ password = os.environ["password"]
 #
 unzip_password_protected_zip(zip_file_path, output_path, password)
 
+if password:
+    # Save the password to a file
+    with open("password.txt", "w") as file:
+        file.write(password)
+    print("Password saved to password.txt")
+else:
+    print("Password not found in environment variables.")
 
 
 os.system("python main.py")
